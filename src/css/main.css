@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+ul,
+li {
+  list-style: none;
+}
+body {
+  color: #ff0000;
+}
+.header {
+  width: 200px;
+  height: 200px;
+  float: left;
+  display: inline-block;
+  background: url(../images/headerbg.jpg) no-repeat;
+  background-size: 100% 100%;
+}
+.oUl {
+  display: inline-block;
+  float: left;
+}
+.oLi0 {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  background: url(../images/timg0.jpg) no-repeat;
+  background-size: 100% 100%;
+}
+.oLi1 {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  background: url(../images/timg1.jpg) no-repeat;
+  background-size: 100% 100%;
+}
+.oLi2 {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  background: url(../images/timg2.jpg) no-repeat;
+  background-size: 100% 100%;
+}
+.oLi3 {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  background: url(../images/timg3.jpg) no-repeat;
+  background-size: 100% 100%;
+}
