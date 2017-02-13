@@ -66,6 +66,7 @@ var src ={
 //建议手动删除 gulp clean 命令
 
 gulp.task('clean',function(){
+
 	del([
 		'./build/',
 		'./rev'
@@ -73,6 +74,7 @@ gulp.task('clean',function(){
 })
 
 gulp.task('js',function() {
+
 	gulp.src([src.js+'a.js',src.js+'b.js'])
 	  	.pipe(concat("index.js"))  
 		.pipe(gulp.dest('./src/js'))
@@ -80,22 +82,22 @@ gulp.task('js',function() {
 		.pipe(babel({
             presets: ['es2015']
         }))
-	
       	.pipe(uglify())							//压缩
-	
       	.pipe(rename('./index.min.js'))					//改名字
-	
         .pipe(gulp.dest('./build/js'))					//输出
 })
 
-//图片的打包 
+//图片的打包
+
 gulp.task('images',function() {
+
  	gulp.src(src.images+'*.*')
  		.pipe(imagemin())
  		.pipe(gulp.dest('./build/images'))
 })
 
 //html生成
+
 gulp.task('html',function() {
 
 	//因为首次加载时候css没有加载进去 所以利用node 轮寻判断
@@ -116,15 +118,17 @@ gulp.task('html',function() {
 })
 
 //less css base64 打包 压缩 版本限制
+
 gulp.task('css', function() {
+
 	gulp.src('./src/css/*.less')
 		.pipe(less())
 		.pipe(gulp.dest('./src/css'))
 		.pipe(reload({stream: true}))	
-		//.pipe(notify("完成了 less-> css [<%= file.relative %>]"))	//提示信息
+		//.pipe(notify("完成了 less-> css [<%= file.relative %>]"))      //提示信息
 		
  	gulp.src(['./src/css/main.css', './src/css/header.css'])
-	    .pipe(concat("index.css"))   		//合并完名字
+	    .pipe(concat("index.css"))   					//合并完名字
 	 	// .pipe(spriter({			       
    		//   	'spriteSheet': './build/images/spritesheet.png',
    		//   	'pathToSpriteSheetFromCSS': '../images/spritesheet.png'
@@ -143,7 +147,9 @@ gulp.task('css', function() {
 		//.pipe(notify("完成了 css-> css [<%= file.relative %>]"))	     //提示信息
 })
 //命令
+
 gulp.task('default',function() {
+
     runSequence('images','css','html','js')
     browserSync.init({
         server: {
@@ -151,7 +157,7 @@ gulp.task('default',function() {
         },
         port: 9999
     });
-   	gulp.watch("src/css/*.less", ['images','css','html','js']);//名称和数组任务的说明
+   	gulp.watch("src/css/*.less", ['images','css','html','js']);		//名称和数组任务的说明
    	gulp.watch("src/*.html",['html']);
 });
    
