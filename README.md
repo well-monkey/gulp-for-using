@@ -10,26 +10,236 @@
 	(3).详情请看gulpfile.js     	
 #详细的教程说明
 >####1.基本的安装设置install
-	http://gulpjs.com/ 这个是gulp的官方网站，进入后可以看到gulp-cli的基本命令。
-	
-	
->####2.同步测试工具Browsersync
->####3.自动刷新
->####4.gulp-notify通知
->####5.gulp-concat合并
->####6.gulp-clean-css压缩
->####7.gulp-concat合并
->####8.gulp-rev 版本控制
->####9.gulp-rev-collector 路径修改器
->####10.run-sequence同步执行
->####11.del 删除模块  vinyl-paths管道删除
->####12.gulp-base64 base64图片
->####13.gulp-imagemin 图片压缩
->####14.gulp-css-spriter 雪碧图
->####15.gulp-babel es6=>es5 
->####16.gulp-rename
->####17.gulp-changed
+[gulp官网](http://gulpjs.com/)http://gulpjs.com/		
 
+	这个是gulp的官方网站，进入后可以看到gulp-cli的基本命令。
+	npm install gulp-cli -g 	全局安装gulp
+	npm install gulp -D     	  安装依赖
+	gulpfile.js					目录下面新建 文件在gulp.js文件里面设置	
+```
+var gulp = require('gulp');
+	 gulp.task('default', function() {
+	  // 将你的默认的任务代码放在这
+ });
+ ```
+ 	gulp走的是任务流，一个线程线程的走	
+>####2.同步测试工具Browsersync
+[browsersync官网](http://www.browsersync.cn/)http://www.browsersync.cn/
+[gulp和browsersync结合](http://www.browsersync.cn/docs/gulp/)http://www.browsersync.cn/docs/gulp/	
+
+	npm install -g browser-sync	
+	npm install  browser-sync --save-dev 		
+	//安装完依赖后在gulpfile.js中添加
+	var browserSync = require('browser-sync').create();
+	browserSync.init({
+		server: {
+		    baseDir: "./build/"
+		},
+		port: 9999
+	});
+>####3.自动刷新
+[gulp和browsersync结合](http://www.browsersync.cn/docs/gulp/)http://www.browsersync.cn/docs/gulp/		
+```
+	var gulp        = require('gulp');
+	var browserSync = require('browser-sync').create();
+	var sass        = require('gulp-sass');
+	var reload      = browserSync.reload;
+
+	// 静态服务器 + 监听 scss/html 文件
+	gulp.task('serve', ['sass'], function() {
+
+	    browserSync.init({
+		server: "./app"
+	    });
+
+	    gulp.watch("app/scss/*.scss", ['sass']);
+	    gulp.watch("app/*.html").on('change', reload);
+	});
+
+	// scss编译后的css将注入到浏览器里实现更新
+	gulp.task('sass', function() {
+	    return gulp.src("app/scss/*.scss")
+		.pipe(sass())
+		.pipe(gulp.dest("app/css"))
+		.pipe(reload({stream: true}));
+	});
+
+	gulp.task('default', ['serve']);
+```	
+>####4.gulp-notify通知
+[gulp-notify](https://www.npmjs.com/package/gulp-notify)https://www.npmjs.com/package/gulp-notify
+	npm install --save-dev gulp-notify	//安装gulp-notify依赖	
+	var notify = require("gulp-notify");
+	gulp.src("./src/*.*")
+  		.pipe(notify("Hello Gulp!"));
+>####5.gulp-concat合并
+[gulp-concat](https://www.npmjs.com/package/gulp-concat)https://www.npmjs.com/package/gulp-concat
+
+	npm install gulp-concat --save-dev
+```
+	//js合并	
+	var concat = require('gulp-concat');
+	
+	gulp.task('scripts', function() {
+	  return gulp.src('./lib/*.js')
+	    .pipe(concat('all.js'))
+	    .pipe(gulp.dest('./dist/'));
+	});
+```
+>####6.gulp-clean-css压缩
+[gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css)https://www.npmjs.com/package/gulp-clean-css	
+
+	npm install gulp-clean-css --save-dev
+```
+	var gulp = require('gulp');
+	var cleanCSS = require('gulp-clean-css');
+
+	gulp.task('minify-css', function() {
+	  return gulp.src('styles/*.css')
+	    .pipe(cleanCSS({compatibility: 'ie8'}))
+	    .pipe(gulp.dest('dist'));
+	});
+```
+>####7.gulp-rev 版本控制
+[gulp-rev](https://www.npmjs.com/package/gulp-rev)https://www.npmjs.com/package/gulp-rev
+	
+	npm install --save-dev gulp-rev
+```
+	var gulp = require('gulp');
+	var rev = require('gulp-rev');
+
+	gulp.task('default', function () {
+	    return gulp.src('src/*.css')
+		.pipe(rev())
+		.pipe(gulp.dest('dist'));
+	});
+```
+>####8.gulp-rev-collector 路径修改器
+[gulp-rev-collector](https://www.npmjs.com/package/gulp-rev-collector)https://www.npmjs.com/package/gulp-rev-collector
+	
+	npm install --save gulp-rev-collector
+```
+	var gulp         = require('gulp');
+	var rev = require('gulp-rev');
+
+	gulp.task('css', function () {
+	    return gulp.src('src/css/*.css')
+		.pipe(rev())
+		.pipe(gulp.dest('dist/css'))
+		.pipe( rev.manifest() )
+		.pipe( gulp.dest( 'rev/css' ) );
+	});
+
+	gulp.task('scripts', function () {
+	    return gulp.src('src/js/*.js')
+		.pipe(rev())
+		.pipe(gulp.dest('dist/js'))
+		.pipe( rev.manifest() )
+		.pipe( gulp.dest( 'rev/js' ) );
+	});
+```
+>####9.run-sequence同步执行
+[run-sequence](https://www.npmjs.com/package/run-sequence)https://www.npmjs.com/package/run-sequence
+	
+	npm install --save-dev run-sequence
+```
+	var gulp = require('gulp');
+	var runSequence = require('run-sequence');
+	var del = require('del');
+	var fs = require('fs');
+	gulp.task('build', function(callback) {
+	  runSequence('build-clean',
+		      ['build-scripts', 'build-styles'],
+		      'build-html',
+		      callback);
+	});
+```
+>####10.del 删除模块  vinyl-paths管道删除
+[del](https://www.npmjs.com/package/del)https://www.npmjs.com/package/del
+[vinyl-paths](https://www.npmjs.com/package/vinyl-paths)https://www.npmjs.com/package/vinyl-paths
+
+	npm install del --save-dev
+	npm install vinyl-paths --save-dev 
+>####11.gulp-base64 base64图片
+[gulp-base64](https://www.npmjs.com/package/gulp-base64)https://www.npmjs.com/package/gulp-base64
+
+	npm install gulp-base64 --save-dev
+```
+	var gulp = require('gulp');
+	var base64 = require('./build/gulp-base64');
+
+	//basic example 
+	gulp.task('build', function () {
+	    return gulp.src('./css/*.css')
+		.pipe(base64())
+		.pipe(concat('main.css'))
+		.pipe(gulp.dest('./public/css'));
+	});
+```
+>####12.gulp-imagemin 图片压缩
+[gulp-imagemin](https://www.npmjs.com/package/gulp-imagemin)https://www.npmjs.com/package/gulp-imagemin
+	
+	npm install gulp-imagemin --save-dev
+```
+	//es6写法	
+	const gulp = require('gulp');
+	const imagemin = require('gulp-imagemin');
+
+	gulp.task('default', () =>
+	    gulp.src('src/images/*')
+		.pipe(imagemin())
+		.pipe(gulp.dest('dist/images'))
+	);
+```	
+>####13.gulp-css-spriter 雪碧图
+[gulp-css-spriter](https://www.npmjs.com/package/gulp-css-spriter)https://www.npmjs.com/package/gulp-css-spriter
+	
+	npm install gulp-css-spriter --save-dev
+>####14.gulp-babel es6=>es5 
+[gulp-babel](https://www.npmjs.com/package/gulp-babel)https://www.npmjs.com/package/gulp-babel
+
+	npm install --save-dev gulp-babel babel-preset-es2015
+```
+	
+```
+>####15.gulp-rename
+[gulp-rename](https://www.npmjs.com/package/gulp-rename)https://www.npmjs.com/package/gulp-rename
+
+	npm install gulp-rename --save-dev
+```
+	//es6写法	
+	const gulp = require('gulp');
+	const babel = require('gulp-babel');
+
+	gulp.task('default', () => {
+	    return gulp.src('src/app.js')
+		.pipe(babel({
+		    presets: ['es2015']
+		}))
+		.pipe(gulp.dest('dist'));
+	});
+```
+>####16.gulp-changed
+[gulp-changed](https://www.npmjs.com/package/del)https://www.npmjs.com/package/gulp-changed
+	
+	npm install gulp-changed --save-dev
+```
+	const gulp = require('gulp');
+	const changed = require('gulp-changed');
+	const ngAnnotate = require('gulp-ng-annotate'); // just as an example 
+
+	const SRC = 'src/*.js';
+	const DEST = 'dist';
+
+	gulp.task('default', () => {
+	    return gulp.src(SRC)
+		.pipe(changed(DEST))
+		// ngAnnotate will only get the files that 
+		// changed since the last time it was run 
+		.pipe(ngAnnotate())
+		.pipe(gulp.dest(DEST));
+	});
+```
 #gulpfile.js
 
 	var gulp 	= require('gulp');
