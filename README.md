@@ -65,13 +65,18 @@ var gulp = require('gulp');
 	});
 
 	gulp.task('default', ['serve']);
-```	
+```
+
 >####4.gulp-notify通知
 [gulp-notify](https://www.npmjs.com/package/gulp-notify)https://www.npmjs.com/package/gulp-notify
+
 	npm install --save-dev gulp-notify	//安装gulp-notify依赖	
+```
 	var notify = require("gulp-notify");
 	gulp.src("./src/*.*")
   		.pipe(notify("Hello Gulp!"));
+```	
+
 >####5.gulp-concat合并
 [gulp-concat](https://www.npmjs.com/package/gulp-concat)https://www.npmjs.com/package/gulp-concat
 
@@ -86,6 +91,7 @@ var gulp = require('gulp');
 	    .pipe(gulp.dest('./dist/'));
 	});
 ```
+
 >####6.gulp-clean-css压缩
 [gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css)https://www.npmjs.com/package/gulp-clean-css	
 
@@ -100,6 +106,7 @@ var gulp = require('gulp');
 	    .pipe(gulp.dest('dist'));
 	});
 ```
+
 >####7.gulp-rev 版本控制
 [gulp-rev](https://www.npmjs.com/package/gulp-rev)https://www.npmjs.com/package/gulp-rev
 	
@@ -114,6 +121,7 @@ var gulp = require('gulp');
 		.pipe(gulp.dest('dist'));
 	});
 ```
+
 >####8.gulp-rev-collector 路径修改器
 [gulp-rev-collector](https://www.npmjs.com/package/gulp-rev-collector)https://www.npmjs.com/package/gulp-rev-collector
 	
@@ -138,6 +146,7 @@ var gulp = require('gulp');
 		.pipe( gulp.dest( 'rev/js' ) );
 	});
 ```
+
 >####9.run-sequence同步执行
 [run-sequence](https://www.npmjs.com/package/run-sequence)https://www.npmjs.com/package/run-sequence
 	
@@ -154,12 +163,14 @@ var gulp = require('gulp');
 		      callback);
 	});
 ```
+
 >####10.del 删除模块  vinyl-paths管道删除
 [del](https://www.npmjs.com/package/del)https://www.npmjs.com/package/del
 [vinyl-paths](https://www.npmjs.com/package/vinyl-paths)https://www.npmjs.com/package/vinyl-paths
 
 	npm install del --save-dev
 	npm install vinyl-paths --save-dev 
+	
 >####11.gulp-base64 base64图片
 [gulp-base64](https://www.npmjs.com/package/gulp-base64)https://www.npmjs.com/package/gulp-base64
 
@@ -176,6 +187,7 @@ var gulp = require('gulp');
 		.pipe(gulp.dest('./public/css'));
 	});
 ```
+
 >####12.gulp-imagemin 图片压缩
 [gulp-imagemin](https://www.npmjs.com/package/gulp-imagemin)https://www.npmjs.com/package/gulp-imagemin
 	
@@ -191,21 +203,16 @@ var gulp = require('gulp');
 		.pipe(gulp.dest('dist/images'))
 	);
 ```	
+
 >####13.gulp-css-spriter 雪碧图
 [gulp-css-spriter](https://www.npmjs.com/package/gulp-css-spriter)https://www.npmjs.com/package/gulp-css-spriter
 	
 	npm install gulp-css-spriter --save-dev
+	
 >####14.gulp-babel es6=>es5 
 [gulp-babel](https://www.npmjs.com/package/gulp-babel)https://www.npmjs.com/package/gulp-babel
 
 	npm install --save-dev gulp-babel babel-preset-es2015
-```
-	
-```
->####15.gulp-rename
-[gulp-rename](https://www.npmjs.com/package/gulp-rename)https://www.npmjs.com/package/gulp-rename
-
-	npm install gulp-rename --save-dev
 ```
 	//es6写法	
 	const gulp = require('gulp');
@@ -219,6 +226,15 @@ var gulp = require('gulp');
 		.pipe(gulp.dest('dist'));
 	});
 ```
+
+>####15.gulp-rename
+[gulp-rename](https://www.npmjs.com/package/gulp-rename)https://www.npmjs.com/package/gulp-rename
+
+	npm install gulp-rename --save-dev
+```
+	
+```
+
 >####16.gulp-changed
 [gulp-changed](https://www.npmjs.com/package/del)https://www.npmjs.com/package/gulp-changed
 	
@@ -240,6 +256,7 @@ var gulp = require('gulp');
 		.pipe(gulp.dest(DEST));
 	});
 ```
+
 #gulpfile.js
 
 	var gulp 	= require('gulp');
