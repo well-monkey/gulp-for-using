@@ -4,11 +4,13 @@ gulp 的一些用法 css、js、img打包合并压缩
 #gulp的使用。
 1.进入目录文件夹 npm install 安装依赖
 
-2.命令 gulp命令 进行css，js，img的打包base64，合并压缩
+2.命令 
 
-      gulp clean命令 是清楚目录下面的build目录和rev目录
+	gulp命令 进行css，js，img的打包base64，合并压缩
+
+        gulp clean命令 是清楚目录下面的build目录和rev目录
       
-      详情请看gulpfile.js 
+        详情请看gulpfile.js 
       
       
       
