@@ -6,12 +6,10 @@ gulp 的一些用法 css、js、img打包合并压缩
 
 2.命令 
 
-	 cdm中执行
-	gulp  命令 进行css，js，img的打包base64，合并压缩
-
-        gulp clean命令 是清楚目录下面的build目录和rev目录
-      
-        详情请看gulpfile.js 
+	 命令行cmd中执行
+	 1.gulp  命令 进行css，js，img的打包base64，合并压缩
+	 2.gulp clean命令 是清楚目录下面的build目录和rev目录
+	 3.详情请看gulpfile.js 
       
       
       
