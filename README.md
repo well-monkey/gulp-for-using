@@ -1,16 +1,13 @@
 # myGulpExample
 	gulp 的一些用法 css、js、img打包合并压缩
-
 #gulp的使用。
 
 	1.进入目录文件夹 npm install 安装依赖
 	2.命令 
-
-	 命令行cmd中执行
-	 1.gulp  命令 进行css，js，img的打包base64，合并压缩
-	 2.gulp clean命令 是清除目录下面的build目录和rev目录
-	 3.详情请看gulpfile.js      
-      
+	命令行cmd中执行
+	 (1).gulp  命令 进行css，js，img的打包base64，合并压缩
+	 (2).gulp clean命令 是清除目录下面的build目录和rev目录
+	 (3).详情请看gulpfile.js      
 #gulpfile.js
 
 	var gulp 	= require('gulp');
@@ -32,7 +29,8 @@
 	var   babel 	= require('gulp-babel');				//babel es6->es5
 	var uglify 	= require('gulp-uglify');					//js压缩
 	var rename     	= require('gulp-rename');				//改名字
-	var changed  	= require('gulp-changed');			
+	var changed  	= require('gulp-changed');
+	
 	var build ={
 		images:'build/images/',
 		js:'build/js/'
@@ -41,6 +39,7 @@
 		images:'./src/images/',
 		js:'./src/js/'
 	}
+	
 	//建议手动删除 gulp clean 命令
 	gulp.task('clean',function(){
 		del([
@@ -60,12 +59,14 @@
 		.pipe(rename('./index.min.js'))					//改名字
 		.pipe(gulp.dest('./build/js'))					//输出
 	})
+	
 	//图片的打包
 	gulp.task('images',function() {
 		gulp.src(src.images+'*.*')
 			.pipe(imagemin())
 			.pipe(gulp.dest('./build/images'))
 	})
+	
 	//html生成
 	gulp.task('html',function() {
 		//因为首次加载时候css没有加载进去 所以利用node 轮寻判断
@@ -83,6 +84,7 @@
 
 		})	
 	})
+	
 	//less css base64 打包 压缩 版本限制
 	gulp.task('css', function() {
 		gulp.src('./src/css/*.less')
@@ -109,9 +111,9 @@
 			.pipe(reload({stream: true}))
 			//.pipe(notify("完成了 css-> css [<%= file.relative %>]"))	     //提示信息
 	})
+	
 	//命令
 	gulp.task('default',function() {
-
 	    runSequence('images','css','html','js')
 	    browserSync.init({
 		server: {
