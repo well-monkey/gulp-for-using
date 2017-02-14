@@ -12,6 +12,8 @@
 >####1.基本的安装设置install
 [gulp官网](http://gulpjs.com/)http://gulpjs.com/		
 
+![](https://github.com/well-monkey/myGulpExample/blob/master/screenshot/gulp.png)
+
 	这个是gulp的官方网站，进入后可以看到gulp-cli的基本命令。
 	npm install gulp-cli -g 	全局安装gulp
 	npm install gulp -D     	  安装依赖
