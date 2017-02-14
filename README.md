@@ -28,7 +28,7 @@
 	var base64 	= require('gulp-base64');					//base64
 	var fs          = require('fs')							//因为首次加载时候css没有加载进去 所以利用node 判断
 	var imagemin 	= require('gulp-imagemin');				//图片压缩
-	var spriter 	= require('gulp-css-spriter');				//雪碧图 现在不流行这个流行base64和
+	var spriter 	= require('gulp-css-spriter');			//雪碧图 现在不流行这个流行base64和
 	var   babel 	= require('gulp-babel');				//babel es6->es5
 	var uglify 	= require('gulp-uglify');					//js压缩
 	var rename     	= require('gulp-rename');				//改名字
@@ -56,7 +56,7 @@
 			.pipe(babel({
 		    presets: ['es2015']
 		}))
-		.pipe(uglify())								//压缩
+		.pipe(uglify())									//压缩
 		.pipe(rename('./index.min.js'))					//改名字
 		.pipe(gulp.dest('./build/js'))					//输出
 	})
@@ -102,8 +102,8 @@
 		    debug: true
 		 }))
 		    .pipe(cleanCSS())							//压缩
-		    .pipe(rev())							//版本控制 随机的css文件
-		    .pipe(gulp.dest('./build/css')) 					//输出存储
+		    .pipe(rev())								//版本控制 随机的css文件
+		    .pipe(gulp.dest('./build/css')) 			//输出存储
 			.pipe(rev.manifest())  						//生成一个rev-mainfest.json
 			.pipe(gulp.dest('./rev'))					//添加到一个新的文件里
 			.pipe(reload({stream: true}))
