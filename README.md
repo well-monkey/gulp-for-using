@@ -39,12 +39,12 @@ var gulp = require('gulp');
 	});
 >####3.自动刷新
 [gulp和browsersync结合](http://www.browsersync.cn/docs/gulp/)http://www.browsersync.cn/docs/gulp/		
-```
+
 	var gulp        = require('gulp');
 	var browserSync = require('browser-sync').create();
 	var sass        = require('gulp-sass');
 	var reload      = browserSync.reload;
-
+```
 	// 静态服务器 + 监听 scss/html 文件
 	gulp.task('serve', ['sass'], function() {
 
@@ -55,7 +55,6 @@ var gulp = require('gulp');
 	    gulp.watch("app/scss/*.scss", ['sass']);
 	    gulp.watch("app/*.html").on('change', reload);
 	});
-
 	// scss编译后的css将注入到浏览器里实现更新
 	gulp.task('sass', function() {
 	    return gulp.src("app/scss/*.scss")
@@ -68,6 +67,7 @@ var gulp = require('gulp');
 ```
 
 >####4.gulp-notify通知
+
 [gulp-notify](https://www.npmjs.com/package/gulp-notify)https://www.npmjs.com/package/gulp-notify
 
 	npm install --save-dev gulp-notify	//安装gulp-notify依赖	
