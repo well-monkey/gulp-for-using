@@ -9,6 +9,7 @@
 	(2).gulp clean命令 是清除目录下面的build目录和rev目录
 	(3).详情请看gulpfile.js     	
 #详细的教程说明
+>码字不易，可以的话给个star。谢谢。
 >####1.基本的安装设置install
 [gulp官网](http://gulpjs.com/)http://gulpjs.com/		
 
