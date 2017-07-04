@@ -1,6 +1,6 @@
 # myGulpExample
 	gulp 的一些用法 css、js、img打包合并压缩
-#gulp的使用
+# gulp的使用
 	
 	1.进入目录文件夹 npm install 安装依赖
 	2.命令 
@@ -8,9 +8,9 @@
 	(1).gulp  命令 进行css，js，img的打包base64，合并压缩
 	(2).gulp clean命令 是清除目录下面的build目录和rev目录
 	(3).详情请看gulpfile.js     	
-#详细的教程说明
+# 详细的教程说明
 >码字不易，可以的话给个star。谢谢。
->####1.基本的安装设置install
+>#### 1.基本的安装设置install
 [gulp官网](http://gulpjs.com/)http://gulpjs.com/		
 
 ![](https://github.com/well-monkey/myGulpExample/blob/master/screenshot/gulp.png)
@@ -26,7 +26,7 @@ var gulp = require('gulp');
  });
  ```
  	gulp走的是任务流，一个线程线程的走	
->####2.同步测试工具Browsersync
+> #### 2.同步测试工具Browsersync
 [browsersync官网](http://www.browsersync.cn/)http://www.browsersync.cn/
 [gulp和browsersync结合](http://www.browsersync.cn/docs/gulp/)http://www.browsersync.cn/docs/gulp/	
 
@@ -40,7 +40,7 @@ var gulp = require('gulp');
 		},
 		port: 9999
 	});
->####3.自动刷新
+> #### 3.自动刷新
 [gulp和browsersync结合](http://www.browsersync.cn/docs/gulp/)http://www.browsersync.cn/docs/gulp/		
 
 	var gulp        = require('gulp');
@@ -69,7 +69,7 @@ var gulp = require('gulp');
 	gulp.task('default', ['serve']);
 ```
 
->####4.gulp-notify通知
+>#### 4.gulp-notify通知
 
 [gulp-notify](https://www.npmjs.com/package/gulp-notify)https://www.npmjs.com/package/gulp-notify
 
@@ -80,7 +80,7 @@ var gulp = require('gulp');
   		.pipe(notify("Hello Gulp!"));
 ```	
 
->####5.gulp-concat合并
+>#### 5.gulp-concat合并
 [gulp-concat](https://www.npmjs.com/package/gulp-concat)https://www.npmjs.com/package/gulp-concat
 
 	npm install gulp-concat --save-dev
@@ -95,7 +95,7 @@ var gulp = require('gulp');
 	});
 ```
 
->####6.gulp-clean-css压缩
+>#### 6.gulp-clean-css压缩
 [gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css)https://www.npmjs.com/package/gulp-clean-css	
 
 	npm install gulp-clean-css --save-dev
@@ -110,7 +110,7 @@ var gulp = require('gulp');
 	});
 ```
 
->####7.gulp-rev 版本控制
+>#### 7.gulp-rev 版本控制
 [gulp-rev](https://www.npmjs.com/package/gulp-rev)https://www.npmjs.com/package/gulp-rev
 	
 	npm install --save-dev gulp-rev
@@ -125,7 +125,7 @@ var gulp = require('gulp');
 	});
 ```
 
->####8.gulp-rev-collector 路径修改器
+>#### 8.gulp-rev-collector 路径修改器
 [gulp-rev-collector](https://www.npmjs.com/package/gulp-rev-collector)https://www.npmjs.com/package/gulp-rev-collector
 	
 	npm install --save gulp-rev-collector
@@ -150,7 +150,7 @@ var gulp = require('gulp');
 	});
 ```
 
->####9.run-sequence同步执行
+>#### 9.run-sequence同步执行
 [run-sequence](https://www.npmjs.com/package/run-sequence)https://www.npmjs.com/package/run-sequence
 	
 	npm install --save-dev run-sequence
@@ -167,14 +167,14 @@ var gulp = require('gulp');
 	});
 ```
 
->####10.del 删除模块  vinyl-paths管道删除
+>#### 10.del 删除模块  vinyl-paths管道删除
 [del](https://www.npmjs.com/package/del)https://www.npmjs.com/package/del
 [vinyl-paths](https://www.npmjs.com/package/vinyl-paths)https://www.npmjs.com/package/vinyl-paths
 
 	npm install del --save-dev
 	npm install vinyl-paths --save-dev 
 	
->####11.gulp-base64 base64图片
+>#### 11.gulp-base64 base64图片
 [gulp-base64](https://www.npmjs.com/package/gulp-base64)https://www.npmjs.com/package/gulp-base64
 
 	npm install gulp-base64 --save-dev
@@ -191,7 +191,7 @@ var gulp = require('gulp');
 	});
 ```
 
->####12.gulp-imagemin 图片压缩
+>#### 12.gulp-imagemin 图片压缩
 [gulp-imagemin](https://www.npmjs.com/package/gulp-imagemin)https://www.npmjs.com/package/gulp-imagemin
 	
 	npm install gulp-imagemin --save-dev
@@ -207,12 +207,12 @@ var gulp = require('gulp');
 	);
 ```	
 
->####13.gulp-css-spriter 雪碧图
+>#### 13.gulp-css-spriter 雪碧图
 [gulp-css-spriter](https://www.npmjs.com/package/gulp-css-spriter)https://www.npmjs.com/package/gulp-css-spriter
 	
 	npm install gulp-css-spriter --save-dev
 	
->####14.gulp-babel es6=>es5 
+>#### 14.gulp-babel es6=>es5 
 [gulp-babel](https://www.npmjs.com/package/gulp-babel)https://www.npmjs.com/package/gulp-babel
 
 	npm install --save-dev gulp-babel babel-preset-es2015
@@ -230,7 +230,7 @@ var gulp = require('gulp');
 	});
 ```
 
->####15.gulp-rename
+>#### 15.gulp-rename
 [gulp-rename](https://www.npmjs.com/package/gulp-rename)https://www.npmjs.com/package/gulp-rename
 
 	npm install gulp-rename --save-dev
@@ -238,7 +238,7 @@ var gulp = require('gulp');
 	
 ```
 
->####16.gulp-changed
+>#### 16.gulp-changed
 [gulp-changed](https://www.npmjs.com/package/del)https://www.npmjs.com/package/gulp-changed
 	
 	npm install gulp-changed --save-dev
@@ -260,7 +260,7 @@ var gulp = require('gulp');
 	});
 ```
 
-#gulpfile.js
+# gulpfile.js
 
 	var gulp 	= require('gulp');
 	var less 	= require('gulp-less');						//less插件
